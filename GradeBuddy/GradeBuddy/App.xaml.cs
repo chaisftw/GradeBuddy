@@ -8,12 +8,14 @@ namespace GradeBuddy
 {
     public partial class App : Application
     {
+        private ContentPage mainPage;
         private static DBItemManager dbManager;
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            mainPage = new MainPage();
+            MainPage = new NavigationPage(mainPage);
+            NavigationManager.Instance.Navigation = MainPage.Navigation;
         }
 
         protected override void OnStart()
