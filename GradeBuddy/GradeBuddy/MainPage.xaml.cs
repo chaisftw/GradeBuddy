@@ -35,10 +35,10 @@ namespace GradeBuddy
 
         async void AddSubject(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new AddSubjectPage
-            //{
-            //    BindingContext = new UnitModel()
-            //});
+            await Navigation.PushAsync(new AddUnit
+            {
+                BindingContext = new UnitModel()
+            });
         }
     }
 }

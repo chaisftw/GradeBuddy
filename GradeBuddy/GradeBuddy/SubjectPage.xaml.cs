@@ -39,10 +39,10 @@ namespace GradeBuddy
 
         async void AddAssessment(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new AddAssessmentPage
-            //{
-            //    BindingContext = new AssessmentModel()
-            //});
+            await Navigation.PushAsync(new AddAssessment
+            {
+                BindingContext = new AssessmentModel()
+            });
         }
     }
 }

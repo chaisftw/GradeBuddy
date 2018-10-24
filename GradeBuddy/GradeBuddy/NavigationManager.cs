@@ -31,6 +31,20 @@ namespace GradeBuddy
             navigation.PushAsync(new MainPage());
         }
 
+        public void ShowAddUnit()
+        {
+            navigation.PushAsync(new AddUnit());
+        }
+
+        public void ShowAddAssessment()
+        {
+            navigation.PushAsync(new AddAssessment());
+        }
+
+        public void ShowUnitView()
+        {
+            navigation.PushAsync(new AddUnit());
+        }
     }
     
 }
