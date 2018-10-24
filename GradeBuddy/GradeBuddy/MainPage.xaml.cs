@@ -19,8 +19,6 @@ namespace GradeBuddy
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
 
         }
 

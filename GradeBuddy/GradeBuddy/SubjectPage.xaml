@@ -78,7 +78,7 @@
                   RowSpacing="5"
                   Grid.Row="1">
 
-                <Grid.RowDefinitions>
+                <!--<Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -87,9 +87,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                </Grid.ColumnDefinitions>-->
 
-                <Label Text="Item" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"/>
+                <!--<Label Text="Item" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"/>
                 <Label Text="Weight" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="2"/>
                 <Label Text="Marks" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="3"/>
 
@@ -123,6 +123,18 @@
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding Marks}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" Grid.Row="2" Grid.Column="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding UnitList}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
