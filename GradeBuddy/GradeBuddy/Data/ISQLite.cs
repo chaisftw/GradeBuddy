@@ -2,7 +2,7 @@
 
 namespace GradeBuddy.Data
 {
-    interface ISQLite
+    public interface ISQLite
     {
         SQLiteConnection GetConnection();
     }
