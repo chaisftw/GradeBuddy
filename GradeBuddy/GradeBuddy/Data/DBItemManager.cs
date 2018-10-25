@@ -80,6 +80,17 @@ namespace GradeBuddy.Data
             {
                 if (item.AssessmentID != 0)
                 {
+                    item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
+
+                    var unitsEnum = App.DBManager.GetDBUnits();
+
+                    while (unitsEnum.MoveNext())
+                    {
+                        while (unitsEnum.Current.UnitID == item.UnitID)
+                        {
+                            MathUtils.CurrentUnitPercentage(unitsEnum.Current);
+                        }
+                    }
                     this.database.Update(item);
                     return item.AssessmentID;
                 }

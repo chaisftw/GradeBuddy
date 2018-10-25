@@ -72,23 +72,21 @@ namespace GradeBuddy
             AddAssessmentCommand = new Command(() =>
             {
                 int weightInt;
-                bool multiGraded = false;
+                int marksInt;
 
                 try
                 {
                     weightInt = Convert.ToInt32(WeightEntry);
+                    marksInt = Convert.ToInt32(TotalMarksEntry);
                 }
                 catch (Exception)
                 {
                     weightInt = 2222;
+                    marksInt = 2222;
                 }
 
-                if(AssessTypeEntry == "Multiple Items")
-                {
-                    multiGraded = true;
-                }
+                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, TotalMarks = marksInt, DueDate = DateEntry });
 
-                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, DueDate = DateEntry });
                 navigationManager.ShowUnitView();
             });
 

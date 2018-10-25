@@ -15,5 +15,6 @@ namespace GradeBuddy.Models
         public string Semester { get; set; }
         public int TargetGrade { get; set; }
         public string Year { get; set; }
+        public int CurrentPercent { get; set; }
     }
 }
