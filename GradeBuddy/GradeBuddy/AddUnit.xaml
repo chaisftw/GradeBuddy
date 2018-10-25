@@ -68,7 +68,7 @@
                     </Picker>
                 </Grid>
 
-                <Button Text="Add Unit" Command="AddUnitCommand"/>
+                <Button Text="Add Unit" Command="{Binding AddUnitCommand}"/>
                 <Button Text="Add Unit" Command="Reset"/>
             </StackLayout>
         </Grid>

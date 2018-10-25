@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +11,14 @@ namespace GradeBuddy
 {
     public partial class MainPage : ContentPage
     {
-
+        public ObservableCollection<UnitModel> unitList;
         public MainPage()
         {
             InitializeComponent();
+            unitList = new ObservableCollection<UnitModel>();
+            
+
+            itemList.ItemsSource = GetUnitList();
         }
 
         protected override async void OnAppearing()
@@ -40,5 +44,21 @@ namespace GradeBuddy
                 BindingContext = new UnitModel()
             });
         }
+
+        public ObservableCollection<UnitModel> GetUnitList()
+        {
+            var unitEnum = App.DBManager.GetDBUnits();
+
+            while (unitEnum.MoveNext())
+            {
+                unitList.Add(unitEnum.Current);
+            }
+
+            unitEnum.Reset();
+
+            return unitList;
+        }
+
+
     }
 }

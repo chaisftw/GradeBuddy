@@ -16,9 +16,9 @@ namespace GradeBuddy
         private ObservableCollection<AssessmentItemModel> assessmentItemList = new ObservableCollection<AssessmentItemModel>();
 
         // Current selection properties
-        private UnitModel CurrentUnit { get; set; }
-        private AssessmentModel CurrentAssessment { get; set; }
-        private AssessmentItemModel CurrentAssessmentItem { get; set; }
+        public UnitModel CurrentUnit { get; set; }
+        public AssessmentModel CurrentAssessment { get; set; }
+        public AssessmentItemModel CurrentAssessmentItem { get; set; }
 
         // Add unit Properties
         public string UnitNameEntry { get; set; }
@@ -50,6 +50,7 @@ namespace GradeBuddy
             // Adds a new unit to the database, then navigates to the sub menu
             AddUnitCommand = new Command(() =>
             {
+                Console.WriteLine("Unit Button Detect");
                 int targetInt;
                 int yearInt;
 
