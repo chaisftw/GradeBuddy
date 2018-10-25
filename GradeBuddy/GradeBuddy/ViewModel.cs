@@ -88,7 +88,7 @@ namespace GradeBuddy
                     multiGraded = true;
                 }
 
-                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, MultiItem = multiGraded, DueDate = DateEntry });
+                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, DueDate = DateEntry });
                 navigationManager.ShowUnitView();
             });
 

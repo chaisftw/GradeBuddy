@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +14,16 @@ namespace GradeBuddy
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubjectPage : ContentPage
     {
+
+        public ObservableCollection<AssessmentModel> assessmentList;
+
         public SubjectPage()
         {
             InitializeComponent();
-        }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
+            assessmentList = new ObservableCollection<AssessmentModel>();
 
-
+            assessList.ItemsSource = GetAssessmentList();
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -43,6 +43,26 @@ namespace GradeBuddy
             {
                 BindingContext = new AssessmentModel()
             });
+        }
+
+        public ObservableCollection<AssessmentModel> GetAssessmentList()
+        {
+            var assessEnum = App.DBManager.GetDBAssessments();
+
+            if (assessEnum != null)
+            {
+                while (assessEnum.MoveNext())
+                {
+                    if(assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                    {
+                        assessmentList.Add(assessEnum.Current);
+                    }
+                }
+
+                assessEnum.Reset();
+            }
+
+            return assessmentList;
         }
     }
 }

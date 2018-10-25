@@ -473,11 +473,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dale\\Desktop\\IAB330\\GradeBuddy\\GradeBuddy\\GradeBuddy\\GradeBuddy.csproj",
+      "projectUniqueName": "C:\\Users\\Dale\\Desktop\\IAB330\\Assignment\\GradeBuddy\\GradeBuddy\\GradeBuddy\\GradeBuddy.csproj",
       "projectName": "GradeBuddy",
-      "projectPath": "C:\\Users\\Dale\\Desktop\\IAB330\\GradeBuddy\\GradeBuddy\\GradeBuddy\\GradeBuddy.csproj",
+      "projectPath": "C:\\Users\\Dale\\Desktop\\IAB330\\Assignment\\GradeBuddy\\GradeBuddy\\GradeBuddy\\GradeBuddy.csproj",
       "packagesPath": "C:\\Users\\Dale\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dale\\Desktop\\IAB330\\GradeBuddy\\GradeBuddy\\GradeBuddy\\obj\\",
+      "outputPath": "C:\\Users\\Dale\\Desktop\\IAB330\\Assignment\\GradeBuddy\\GradeBuddy\\GradeBuddy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

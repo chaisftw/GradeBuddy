@@ -14,8 +14,10 @@ namespace GradeBuddy.Models
 
         public string Name { get; set; }
         public int Weight { get; set; }
-        public int Marks { get; set; }
-        public bool MultiItem { get; set; }
+        public double Marks { get; set; }
+        public double TotalMarks { get; set; }
+        public double CurrentPercent { get; set; }
         public DateTime DueDate { get; set; }
+        public bool Completed { get; set; }
     }
 }
