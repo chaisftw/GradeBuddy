@@ -21,15 +21,13 @@ namespace GradeBuddy
             itemList.ItemsSource = GetUnitList();
         }
 
-        protected override async void OnAppearing()
-        {
-
-        }
-
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
             if (e.SelectedItem != null)
             {
+                UnitModel unit = (UnitModel)itemList.SelectedItem;
+                SelectionManager.currentUnit = unit;
                 await Navigation.PushAsync(new SubjectPage
                 {
                     BindingContext = e.SelectedItem as UnitModel
@@ -48,13 +46,15 @@ namespace GradeBuddy
         public ObservableCollection<UnitModel> GetUnitList()
         {
             var unitEnum = App.DBManager.GetDBUnits();
-
-            while (unitEnum.MoveNext())
+            if(unitEnum != null)
             {
-                unitList.Add(unitEnum.Current);
-            }
+                while (unitEnum.MoveNext())
+                {
+                    unitList.Add(unitEnum.Current);
+                }
 
-            unitEnum.Reset();
+                unitEnum.Reset();
+            }
 
             return unitList;
         }

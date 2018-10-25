@@ -21,6 +21,5 @@ namespace GradeBuddy.iOS
             var connection = new SQLite.SQLiteConnection(path);
             return connection;
         }
-
     }
 }

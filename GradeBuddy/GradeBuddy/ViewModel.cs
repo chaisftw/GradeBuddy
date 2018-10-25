@@ -86,6 +86,7 @@ namespace GradeBuddy
                 }
 
                 App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, TotalMarks = marksInt, DueDate = DateEntry });
+
                 navigationManager.ShowUnitView();
             });
 
