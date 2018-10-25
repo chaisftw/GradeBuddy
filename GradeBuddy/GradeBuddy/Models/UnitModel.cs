@@ -12,8 +12,8 @@ namespace GradeBuddy.Models
 
         public string Name { get; set; }
         public string UnitCode { get; set; }
+        public string Semester { get; set; }
         public int TargetGrade { get; set; }
-        public int Semester { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
     }
 }

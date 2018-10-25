@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GradeBuddy"
+             x:Class="GradeBuddy.SubjectPage">
+
+    <Grid Padding="5"
+          RowSpacing="5">
+
+        <Grid.BindingContext>
+            <local:ViewModel/>
+        </Grid.BindingContext>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid ColumnSpacing="5"
+                Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid ColumnSpacing="5"
+                  RowSpacing="5"
+                  Grid.Row="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Current" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Target" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="3" Grid.Row="1" Grid.Column="0"/>
+                <Button Text="4" Grid.Row="1" Grid.Column="1"/>
+
+            </Grid>
+
+            <Grid ColumnSpacing="5"
+                  RowSpacing="5"
+                  Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Subject" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Semester" Grid.Row="0" Grid.Column="1"/>
+
+
+            </Grid>
+
+            <Grid ColumnSpacing="5"
+                  RowSpacing="5"
+                  Grid.Row="1">
+
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>-->
+
+                <!--<Label Text="Item" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Weight" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="2"/>
+                <Label Text="Marks" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="3"/>
+
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" Grid.Row="2" Grid.Column="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" Grid.Row="2" Grid.Column="2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Weight}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" Grid.Row="2" Grid.Column="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Marks}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" Grid.Row="2" Grid.Column="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding assessmentList}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+        </Grid>
+        <Button Text="Add Subject" Clicked="AddAssessment" Grid.Row="1"/>
+    </Grid>
+
+
+</ContentPage>

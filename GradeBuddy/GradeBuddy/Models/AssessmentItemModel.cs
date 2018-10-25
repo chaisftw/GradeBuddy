@@ -11,6 +11,8 @@ namespace GradeBuddy.Models
         public int AssessmentID { get; set; } // Foreign key
         
         public string Name { get; set; }
-        public int Marks { get; set; }
+        public int TotalMarks { get; set; }
+        public int MarksAchieved { get; set; }
+        public bool Complete { get; set; }
     }
 }
