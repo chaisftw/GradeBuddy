@@ -39,11 +39,13 @@ namespace GradeBuddy
             if (e.SelectedItem != null)
             {
                 UnitModel unit = (UnitModel)itemList.SelectedItem;
+
                 SelectionManager.currentUnit = unit;
                 await Navigation.PushAsync(new SubjectPage
                 {
                     BindingContext = e.SelectedItem as UnitModel
                 });
+                ((ListView)sender).SelectedItem = null;
             }
         }
 

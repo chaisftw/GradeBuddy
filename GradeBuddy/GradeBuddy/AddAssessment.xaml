@@ -24,14 +24,14 @@
 
             <StackLayout Spacing="10" VerticalOptions="Start">
 
-                <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry Placeholder="Assessment Name" Text="{Binding AssessmentNameEntry}"/>
-                <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry Placeholder="Total Marks" Text="{Binding TotalMarksEntry}"/>
-                <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry Placeholder="Weight (%)" Text="{Binding WeightEntry}"/>
+                <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="NameText" Text="{Binding AssessmentNameEntry}"/>
+                <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="MarkText" Text="{Binding TotalMarksEntry}"/>
+                <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="WeightText" Text="{Binding WeightEntry}"/>
                 <Label Text="Due Date" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <DatePicker Date="{Binding DateEntry}"/>
+                <DatePicker x:Name="DateTimePicker" Date="{Binding DateEntry}" />
 
                 <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Assessment" Command="{Binding AddAssessmentCommand}"/>
             </StackLayout>

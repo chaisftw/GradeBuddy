@@ -26,11 +26,11 @@
             <StackLayout Spacing="10" VerticalOptions="Start">
 
                 <Label Text="Unit Name" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Placeholder="Unit Name" Text="{Binding UnitNameEntry}"/>
+                <Entry Text="{Binding UnitNameEntry}"/>
                 <Label Text="Unit Code" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Placeholder="Unit Code" Text="{Binding UnitCodeEntry}"/>
-                <Label Text="Target Grade" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Placeholder="Target Grade (%)" Text="{Binding TargetEntry}"/>
+                <Entry Text="{Binding UnitCodeEntry}"/>
+                <Label Text="Target Grade (%)" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Entry Text="{Binding TargetEntry}"/>
 
                 <Grid>
 
@@ -43,8 +43,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Semester" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                    <Picker Title="Semester" Grid.Column="0" SelectedItem="{Binding SemesterEntry}">
+                    <Picker x:Name="SemesterPicker" Grid.Column="0" SelectedItem="{Binding SemesterEntry}">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Semester 1</x:String>
@@ -54,8 +53,7 @@
                         </Picker.ItemsSource>
                     </Picker>
 
-                    <Label Text="Year" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="1" FontSize="Small" />
-                    <Picker Title="Year" Grid.Column="1" SelectedItem="{Binding YearEntry}">
+                    <Picker x:Name="YearPicker" Grid.Column="1" SelectedItem="{Binding YearEntry}">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>2018</x:String>

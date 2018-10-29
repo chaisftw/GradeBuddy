@@ -48,21 +48,32 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Current" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Label VerticalOptions="End" TextColor="Black" x:Name="CurrentLabel" FontSize="Large" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="Target" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="1" FontSize="Small" />
-                <Picker x:Name="Picker" TextColor="Black" FontSize="Medium" Title="Semester" VerticalOptions="End" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="Picker_SelectedIndexChanged">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>4</x:String>
-                            <x:String>5</x:String>
-                            <x:String>6</x:String>
-                            <x:String>7</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-                <Label x:Name="CurrentPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" FontSize="Large" Grid.Row="1" Grid.Column="0"/>
-                <Label x:Name="TargetPerc" TextColor="Black" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Current" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Label TextColor="Black" x:Name="CurrentLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Target" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="1" FontSize="Small" />
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker x:Name="Picker" TextColor="Black" FontSize="Medium" Title="Semester" VerticalOptions="End" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+                <Label x:Name="CurrentPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="TargetPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="1"/>
 
             </Grid>
 

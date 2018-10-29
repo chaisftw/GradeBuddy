@@ -15,6 +15,10 @@ namespace GradeBuddy
 		public AddAssessment ()
 		{
 			InitializeComponent ();
-		}
+            DateTimePicker.Date = DateTime.Now;
+            NameText.Text = "";
+            WeightText.Text = "";
+            MarkText.Text = "";
+        }
     }
 }
