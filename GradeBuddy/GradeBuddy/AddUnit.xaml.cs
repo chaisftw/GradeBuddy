@@ -15,7 +15,9 @@ namespace GradeBuddy
 		public AddUnit ()
 		{
 			InitializeComponent ();
-		}
+            SemesterPicker.SelectedIndex = 0;
+            YearPicker.SelectedIndex = 0;
+        }
 
         static void Reset()
         {

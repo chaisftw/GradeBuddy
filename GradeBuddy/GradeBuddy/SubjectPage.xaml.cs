@@ -47,6 +47,7 @@ namespace GradeBuddy
                 {
                     BindingContext = e.SelectedItem as AssessmentModel
                 });
+                ((ListView)sender).SelectedItem = null;
             }
         }
 
