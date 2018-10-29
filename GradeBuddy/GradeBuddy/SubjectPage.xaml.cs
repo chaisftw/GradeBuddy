@@ -21,10 +21,18 @@ namespace GradeBuddy
         {
             InitializeComponent();
 
+            Console.WriteLine("Unit Page Loaded: UnitID = {0}", SelectionManager.currentUnit.UnitID);
+
             TargetLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.TargetGrade).ToString();
             CurrentPerc.Text = SelectionManager.currentUnit.CurrentPercent.ToString() + "%";
             CurrentLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.CurrentPercent).ToString();
             TargetPerc.Text = SelectionManager.currentUnit.TargetGrade.ToString() + "%";
+
+            if (SelectionManager.currentUnit.CurrentPercent < 1)
+            {
+                CurrentLabel.Text = "--";
+                CurrentPerc.Text = "--%";
+            }
 
             assessmentList = new ObservableCollection<AssessmentModel>();
 
@@ -56,16 +64,15 @@ namespace GradeBuddy
 
             if (assessEnum != null)
             {
+                Console.WriteLine("Populating Assessment: ");
                 while (assessEnum.MoveNext())
                 {
-                    Console.WriteLine(SelectionManager.currentUnit.UnitID);
-                    Console.WriteLine(assessEnum.Current.UnitID);
-                    assessmentList.Add(assessEnum.Current);
-
-                    //if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
-                    //{
-                    //    assessmentList.Add(assessEnum.Current);
-                    //}
+                    Console.WriteLine("AssessmentID = {0}", assessEnum.Current.AssessmentID);
+                    if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                    {
+                        Console.WriteLine("Correct ID AssessmentID = {0}, ", assessEnum.Current.AssessmentID);
+                        assessmentList.Add(assessEnum.Current);
+                    }
                 }
 
                 assessEnum.Reset();

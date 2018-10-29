@@ -86,7 +86,7 @@ namespace GradeBuddy
                     marksInt = 0;
                 }
 
-                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 1, UnitID = SelectionManager.currentUnit.UnitID, Name = AssessmentNameEntry, Weight = weightInt, Marks = 0, CurrentPercent = 0, TotalMarks = TotalMarksEntry, DueDate = DateEntry, Completed = false});
+                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = SelectionManager.currentUnit.UnitID, Name = AssessmentNameEntry, Weight = weightInt, Marks = 0, CurrentPercent = 0, TotalMarks = TotalMarksEntry, DueDate = DateEntry, Completed = false, Saved = false });
                 navigationManager.ShowUnitView();
             });
 
