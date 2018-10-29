@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System;
 using GradeBuddy.Models;
+using GradeBuddy.Data;
 
 namespace GradeBuddy
 {
@@ -28,10 +29,10 @@ namespace GradeBuddy
         public string SemesterEntry { get; set; }
 
         // Add assessment properties
-        public string AssessNameEntry { get; set; }
-        public string AssessTypeEntry { get; set; }
-        public string WeightEntry { get; set; }
-        public string TotalMarksEntry { get; set; }
+        public string AssessmentNameEntry { get; set; }
+        public double WeightEntry { get; set; }
+        public double Marks { get; set; }
+        public double TotalMarksEntry { get; set; }
         public DateTime DateEntry { get; set; }
 
         // Add Item Properties
@@ -71,8 +72,8 @@ namespace GradeBuddy
 
             AddAssessmentCommand = new Command(() =>
             {
-                int weightInt;
-                int marksInt;
+                double weightInt;
+                double marksInt;
 
                 try
                 {
@@ -81,12 +82,11 @@ namespace GradeBuddy
                 }
                 catch (Exception)
                 {
-                    weightInt = 2222;
-                    marksInt = 2222;
+                    weightInt = 0;
+                    marksInt = 0;
                 }
 
-                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = CurrentUnit.UnitID, Name = UnitNameEntry, Weight = weightInt, TotalMarks = marksInt, DueDate = DateEntry });
-
+                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 1, UnitID = SelectionManager.currentUnit.UnitID, Name = AssessmentNameEntry, Weight = weightInt, Marks = 0, CurrentPercent = 0, TotalMarks = TotalMarksEntry, DueDate = DateEntry, Completed = false});
                 navigationManager.ShowUnitView();
             });
 
