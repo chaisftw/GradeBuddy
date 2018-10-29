@@ -47,25 +47,35 @@ namespace GradeBuddy
             var unitEnum = App.DBManager.GetDBUnits();
             var assessEnum = App.DBManager.GetDBAssessments();
 
-            while (unitEnum.MoveNext())
+            if (unitEnum != null)
             {
-                percentage = 0;
-                while (assessEnum.MoveNext())
+                while (unitEnum.MoveNext())
                 {
-                    while (complete && (assessEnum.Current.UnitID == unitEnum.Current.UnitID))
-                    complete = assessEnum.Current.Completed;
-                    percentage += assessEnum.Current.Weight;
-                }
+                    percentage = 0;
 
-                if (percentage >= 100)
-                {
-                    GPAPerc += unitEnum.Current.CurrentPercent;
-                }
+                    if (assessEnum != null)
+                    {
+                        while (assessEnum.MoveNext())
+                        {
+                            while (complete && (assessEnum.Current.UnitID == unitEnum.Current.UnitID))
+                                complete = assessEnum.Current.Completed;
+                            percentage += assessEnum.Current.Weight;
+                        }
 
-                counter++;
+                        if (percentage >= 100)
+                        {
+                            GPAPerc += unitEnum.Current.CurrentPercent;
+                        }
+
+                        counter++;
+                    }
+                }
             }
 
-            GPAPerc = GPAPerc / counter;
+            if (counter != 0)
+            {
+                GPAPerc = GPAPerc / counter;
+            }
             return Math.Floor(GPAPerc);
         }
 

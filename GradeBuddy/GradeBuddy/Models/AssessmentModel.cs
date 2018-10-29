@@ -13,8 +13,7 @@ namespace GradeBuddy.Models
         public int UnitID; // Foreign key
 
         public string Name { get; set; }
-        public int Weight { get; set; }
-
+        public double Weight { get; set; }
         public double Marks { get; set; }
         public double TotalMarks { get; set; }
         public double CurrentPercent { get; set; }

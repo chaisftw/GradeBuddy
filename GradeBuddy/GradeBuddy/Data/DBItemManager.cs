@@ -80,23 +80,38 @@ namespace GradeBuddy.Data
             {
                 if (item.AssessmentID != 0)
                 {
-                    item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
-
-                    var unitsEnum = App.DBManager.GetDBUnits();
-
-                    while (unitsEnum.MoveNext())
-                    {
-                        while (unitsEnum.Current.UnitID == item.UnitID)
-                        {
-                            MathUtils.CurrentUnitPercentage(unitsEnum.Current);
-                        }
-                    }
                     this.database.Update(item);
+
+                    //item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
+
+                    //var unitsEnum = App.DBManager.GetDBUnits();
+
+                    //while (unitsEnum.MoveNext())
+                    //{
+                    //    while (unitsEnum.Current.UnitID == item.UnitID)
+                    //    {
+                    //        MathUtils.CurrentUnitPercentage(unitsEnum.Current);
+                    //    }
+                    //}
+
                     return item.AssessmentID;
                 }
                 else
                 {
-                    return this.database.Insert(item);
+                    this.database.Insert(item);
+
+                    //item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
+
+                    //var unitsEnum = App.DBManager.GetDBUnits();
+
+                    //while (unitsEnum.MoveNext())
+                    //{
+                    //    while (unitsEnum.Current.UnitID == item.UnitID)
+                    //    {
+                    //        MathUtils.CurrentUnitPercentage(unitsEnum.Current);
+                    //    }
+                    //}
+                    return item.AssessmentID;
                 }
             }
         }

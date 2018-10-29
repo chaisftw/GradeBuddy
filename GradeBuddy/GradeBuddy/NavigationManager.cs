@@ -43,7 +43,7 @@ namespace GradeBuddy
 
         public void ShowUnitView()
         {
-            navigation.PushAsync(new AddUnit());
+            navigation.PushAsync(new SubjectPage());
         }
     }
     

@@ -24,12 +24,16 @@
 
             <StackLayout Spacing="10" VerticalOptions="Start">
 
-                <Entry Placeholder="Assessment Name" Text="{Binding AssesmentNameEntry}"/>
+                <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry Placeholder="Assessment Name" Text="{Binding AssessmentNameEntry}"/>
+                <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
                 <Entry Placeholder="Total Marks" Text="{Binding TotalMarksEntry}"/>
+                <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
                 <Entry Placeholder="Weight (%)" Text="{Binding WeightEntry}"/>
+                <Label Text="Due Date" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
                 <DatePicker Date="{Binding DateEntry}"/>
 
-                <Button Text="Add Assessment" Command="{Binding AddAssessmentCommand}"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Assessment" Command="{Binding AddAssessmentCommand}"/>
             </StackLayout>
         </Grid>
 

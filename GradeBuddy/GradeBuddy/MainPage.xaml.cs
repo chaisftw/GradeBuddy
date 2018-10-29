@@ -15,9 +15,15 @@ namespace GradeBuddy
         public MainPage()
         {
             InitializeComponent();
-            unitList = new ObservableCollection<UnitModel>();
-            
 
+            Picker.SelectedIndex = 4;
+            CurrentPerc.Text = MathUtils.GPAPercentage().ToString() + "%";
+            CurrentLabel.Text = MathUtils.ConvertPercentToGrade(MathUtils.GPAPercentage()).ToString();
+            TargetPerc.Text = MathUtils.ConvertGradeToPercent(Picker.SelectedIndex).ToString() + "%";
+
+            //Picker.SelectedIndexChanged += Picker_SelectedIndexChanged;
+
+            unitList = new ObservableCollection<UnitModel>();
             itemList.ItemsSource = GetUnitList();
         }
 
@@ -59,6 +65,9 @@ namespace GradeBuddy
             return unitList;
         }
 
-
+        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TargetPerc.Text = MathUtils.ConvertGradeToPercent(Picker.SelectedIndex).ToString() + "%";
+        }
     }
 }
