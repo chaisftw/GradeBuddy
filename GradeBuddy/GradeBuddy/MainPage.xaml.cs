@@ -17,11 +17,17 @@ namespace GradeBuddy
             InitializeComponent();
 
             Picker.SelectedIndex = 4;
-            CurrentPerc.Text = MathUtils.GPAPercentage().ToString() + "%";
-            CurrentLabel.Text = MathUtils.ConvertPercentToGrade(MathUtils.GPAPercentage()).ToString();
+            if (MathUtils.GPAPercentage() < 1)
+            {
+                CurrentPerc.Text = "--%";
+                CurrentLabel.Text = "--";
+            }
+            else
+            {
+                CurrentPerc.Text = MathUtils.GPAPercentage().ToString() + "%";
+                CurrentLabel.Text = MathUtils.ConvertPercentToGrade(MathUtils.GPAPercentage()).ToString();
+            }
             TargetPerc.Text = MathUtils.ConvertGradeToPercent(Picker.SelectedIndex).ToString() + "%";
-
-            //Picker.SelectedIndexChanged += Picker_SelectedIndexChanged;
 
             unitList = new ObservableCollection<UnitModel>();
             itemList.ItemsSource = GetUnitList();

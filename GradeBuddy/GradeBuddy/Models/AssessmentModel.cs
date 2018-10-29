@@ -10,14 +10,14 @@ namespace GradeBuddy.Models
 
         public int AssessmentID { get; set; } // Primary Key
 
-        public int UnitID; // Foreign key
+        public int UnitID { get; set; } // Foreign key
 
         public string Name { get; set; }
         public double Weight { get; set; }
         public double Marks { get; set; }
         public double TotalMarks { get; set; }
         public double CurrentPercent { get; set; }
-
+        public bool Saved { get; set; }
         public DateTime DueDate { get; set; }
         public bool Completed { get; set; }
     }

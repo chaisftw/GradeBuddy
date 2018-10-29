@@ -1,4 +1,6 @@
-﻿using GradeBuddy.Models;
+﻿using System;
+using System.Windows.Input;
+using GradeBuddy.Models;
 using SQLite;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -78,42 +80,36 @@ namespace GradeBuddy.Data
         {
             lock (locker)
             {
-                if (item.AssessmentID != 0)
+                if (item.Saved)
                 {
                     this.database.Update(item);
 
-                    //item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
+                    item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
 
-                    //var unitsEnum = App.DBManager.GetDBUnits();
+                    var unitsEnum = App.DBManager.GetDBUnits();
 
-                    //while (unitsEnum.MoveNext())
-                    //{
-                    //    while (unitsEnum.Current.UnitID == item.UnitID)
-                    //    {
-                    //        MathUtils.CurrentUnitPercentage(unitsEnum.Current);
-                    //    }
-                    //}
+                    while (unitsEnum.MoveNext())
+                    {
+                        while (unitsEnum.Current.UnitID == item.UnitID)
+                        {
+                            MathUtils.CurrentUnitPercentage(unitsEnum.Current);
+                            SaveDBUnit(unitsEnum.Current);
+                        }
+                    }
 
+                    Console.WriteLine("Update Assessment: AssessID = {0} UnitID = {1}", item.AssessmentID, item.UnitID);
                     return item.AssessmentID;
                 }
                 else
                 {
+                    item.Saved = true;
                     this.database.Insert(item);
 
-                    //item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
-
-                    //var unitsEnum = App.DBManager.GetDBUnits();
-
-                    //while (unitsEnum.MoveNext())
-                    //{
-                    //    while (unitsEnum.Current.UnitID == item.UnitID)
-                    //    {
-                    //        MathUtils.CurrentUnitPercentage(unitsEnum.Current);
-                    //    }
-                    //}
+                    Console.WriteLine("Create Assessment: AssessID = {0} UnitID = {1}", item.AssessmentID, item.UnitID);
                     return item.AssessmentID;
                 }
             }
+
         }
 
         public int DeleteDBAssessment(int id)
