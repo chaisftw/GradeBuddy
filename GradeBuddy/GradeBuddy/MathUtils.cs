@@ -31,7 +31,7 @@ namespace GradeBuddy
                 while (assessEnum.Current.UnitID == item.UnitID)
                 {
 
-                    CurrentPercentage += (assessEnum.Current.CurrentPercent / 100) * assessEnum.Current.Weight;
+                    CurrentPercentage = CurrentPercentage + ((assessEnum.Current.CurrentPercent / 100) * assessEnum.Current.Weight);
                 }
             }
             CurrentPercentage = CurrentPercentage * 100;

@@ -17,7 +17,6 @@ namespace GradeBuddy.Models
         public double Marks { get; set; }
         public double TotalMarks { get; set; }
         public double CurrentPercent { get; set; }
-        public bool Saved { get; set; }
         public DateTime DueDate { get; set; }
         public bool Completed { get; set; }
     }
