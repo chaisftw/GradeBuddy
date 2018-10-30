@@ -48,12 +48,12 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Current" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Label VerticalOptions="End" TextColor="Black" x:Name="CurrentLabel" FontSize="Large" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="Target" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="1" FontSize="Small" />
-                <Label VerticalOptions="End" TextColor="Black" x:Name="TargetLabel" FontSize="Large" Grid.Row="0" Grid.Column="1"/>
-                <Label x:Name="CurrentPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" FontSize="Large" Grid.Row="1" Grid.Column="0"/>
-                <Label x:Name="TargetPerc" TextColor="Black" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Current" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Label TextColor="Black" x:Name="CurrentLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Target" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"  Grid.Row="0" Grid.Column="1" FontSize="Small" />
+                <Label TextColor="Black" x:Name="TargetLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="0" Grid.Column="1"/>
+                <Label x:Name="CurrentPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="TargetPerc" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" Grid.Row="1" Grid.Column="1"/>
 
             </Grid>
 
