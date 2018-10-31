@@ -14,6 +14,7 @@ namespace GradeBuddy
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubjectPage : ContentPage
     {
+        AssessmentModel assessItem;
 
         public ObservableCollection<AssessmentModel> assessmentList;
 
@@ -43,10 +44,12 @@ namespace GradeBuddy
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new AssessmentPage
-                {
-                    BindingContext = e.SelectedItem as AssessmentModel
-                });
+                AssessmentModel assessment = (AssessmentModel)assessList.SelectedItem;
+
+                SelectionManager.currentAssessment = assessment;
+                assessItem = e.SelectedItem as AssessmentModel;
+
+                await Navigation.PushAsync(new AssessmentPage(assessItem));
                 ((ListView)sender).SelectedItem = null;
             }
         }

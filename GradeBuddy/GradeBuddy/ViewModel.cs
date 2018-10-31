@@ -31,9 +31,10 @@ namespace GradeBuddy
         // Add assessment properties
         public string AssessmentNameEntry { get; set; }
         public double WeightEntry { get; set; }
-        public double Marks { get; set; }
+        public double MarksEntry { get; set; }
         public double TotalMarksEntry { get; set; }
         public DateTime DateEntry { get; set; }
+        public bool CompletedEntry { get; set; }
 
         // Add Item Properties
         public string ItemNamEntry { get; set; }
@@ -86,7 +87,7 @@ namespace GradeBuddy
                     marksInt = 0;
                 }
 
-                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = SelectionManager.currentUnit.UnitID, Name = AssessmentNameEntry, Weight = weightInt, Marks = 0, CurrentPercent = 0, TotalMarks = TotalMarksEntry, DueDate = DateEntry, Completed = false, Saved = false });
+                App.DBManager.SaveDBAssessment(new Models.AssessmentModel { AssessmentID = 0, UnitID = SelectionManager.currentUnit.UnitID, Name = AssessmentNameEntry, Weight = weightInt, Marks = MarksEntry, CurrentPercent = 0, TotalMarks = TotalMarksEntry, DueDate = DateEntry, Completed = CompletedEntry });
                 navigationManager.ShowUnitView();
             });
 
