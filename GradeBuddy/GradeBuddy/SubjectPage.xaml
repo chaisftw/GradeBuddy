@@ -124,7 +124,18 @@
             </ScrollView>
 
         </Grid>
-        <Button Text="Add Assignment" TextColor="White" BackgroundColor="DeepSkyBlue" Clicked="AddAssessment" Grid.Row="1"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Add Assignment" TextColor="White" BackgroundColor="DeepSkyBlue" Clicked="AddAssessment" Grid.Column="0"/>
+            <Button Text="Delete Unit" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteUnitCommand}" Grid.Column="1"/>
+        </Grid>
     </Grid>
 
 </ContentPage>

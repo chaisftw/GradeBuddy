@@ -44,6 +44,8 @@ namespace GradeBuddy
         public ICommand AddUnitCommand { protected set; get; }
         public ICommand AddAssessmentCommand { protected set; get; }
         public ICommand AddItemCommand { protected set; get; }
+        public ICommand DeleteUnitCommand { protected set; get; }
+        public ICommand DeleteAssessmentCommand { protected set; get; }
 
         public ViewModel()
         {
@@ -106,6 +108,28 @@ namespace GradeBuddy
 
                 App.DBManager.SaveDBAssessmentItem(new Models.AssessmentItemModel { AssessmentItemID = 0, AssessmentID = CurrentAssessment.AssessmentID, Name = ItemNamEntry, TotalMarks = totalMarks, MarksAchieved = 0, Complete = false });
                 navigationManager.ShowAddAssessment();
+            });
+
+            DeleteUnitCommand = new Command(() =>
+            {
+                var assessEnum = App.DBManager.GetDBAssessments();
+
+                while (assessEnum.MoveNext())
+                {
+                    if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                    {
+                        App.DBManager.DeleteDBAssessment(assessEnum.Current.AssessmentID);
+                    }
+                }
+
+                App.DBManager.DeleteDBUnit(SelectionManager.currentUnit.UnitID);
+                navigationManager.ShowOverview();
+            });
+
+            DeleteAssessmentCommand = new Command(() =>
+            {
+                App.DBManager.DeleteDBAssessment(SelectionManager.currentAssessment.AssessmentID);
+                navigationManager.ShowSubjectPage();
             });
         }
 

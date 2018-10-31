@@ -21,16 +21,22 @@ namespace GradeBuddy
 			InitializeComponent ();
             assessItem = assessPassed;
             TitleLabel.Text = SelectionManager.currentUnit.Name + ": " + SelectionManager.currentAssessment.Name;
+            Console.WriteLine(assessPassed.AssessmentID);
         }
 
         void UpdateAssessment(object sender, EventArgs e)
         {
             Console.WriteLine("Button Functional");
+
             if (int.TryParse(Marks.Text, out int n) && n <= SelectionManager.currentAssessment.TotalMarks)
             {
                 Console.WriteLine("Inside If");
-                SelectionManager.currentAssessment.Completed = true;
-                SelectionManager.currentAssessment.Marks = n;
+                //SelectionManager.currentAssessment.Completed = true;
+                //SelectionManager.currentAssessment.Marks = n;
+                assessItem.Marks = n;
+                assessItem.Completed = true;
+                SelectionManager.currentAssessment = assessItem;
+
                 Console.WriteLine("write database");
 
                 App.DBManager.SaveDBAssessment(assessItem);
