@@ -28,7 +28,8 @@ namespace GradeBuddy
 
             while (assessEnum.MoveNext())
             {
-                while (assessEnum.Current.UnitID == item.UnitID)
+                
+                if(assessEnum.Current.UnitID == item.UnitID)
                 {
 
                     CurrentPercentage = CurrentPercentage + ((assessEnum.Current.CurrentPercent / 100) * assessEnum.Current.Weight);

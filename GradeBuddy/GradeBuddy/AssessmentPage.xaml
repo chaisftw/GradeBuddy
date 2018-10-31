@@ -29,8 +29,20 @@
                 <Entry x:Name="Marks" Placeholder="Marks"/>
                 <Label x:Name="WarningLabel" Text="Invalid Number" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" 
                        Grid.Row="0" Grid.Column="0" FontSize="Small"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Update Assessment" Clicked="UpdateAssessment"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Update Assessment" Clicked="UpdateAssessment" Grid.Column="0"/>
+                    <Button Text="Delete Assessment" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteAssessmentCommand}" Grid.Column="1"/>
+                </Grid>
+
             </StackLayout>
         </Grid>
 
