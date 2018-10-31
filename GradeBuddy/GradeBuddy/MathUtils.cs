@@ -58,9 +58,12 @@ namespace GradeBuddy
                     {
                         while (assessEnum.MoveNext())
                         {
-                            while (complete && (assessEnum.Current.UnitID == unitEnum.Current.UnitID))
+                            if (complete && (assessEnum.Current.UnitID == unitEnum.Current.UnitID))
+                            {
                                 complete = assessEnum.Current.Completed;
-                            percentage += assessEnum.Current.Weight;
+                                percentage += assessEnum.Current.Weight;
+                            }
+                                
                         }
 
                         if (percentage >= 100)
