@@ -27,9 +27,9 @@
                 <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
                 <Entry x:Name="NameText" Text="{Binding AssessmentNameEntry}"/>
                 <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="MarkText" Text="{Binding TotalMarksEntry}"/>
+                <Entry x:Name="MarkText" Text="{Binding TotalMarksEntry}" Keyboard="Numeric"/>
                 <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="WeightText" Text="{Binding WeightEntry}"/>
+                <Entry x:Name="WeightText" Text="{Binding WeightEntry}" Keyboard="Numeric"/>
                 <Label Text="Due Date" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
                 <DatePicker x:Name="DateTimePicker" Date="{Binding DateEntry}" />
 
