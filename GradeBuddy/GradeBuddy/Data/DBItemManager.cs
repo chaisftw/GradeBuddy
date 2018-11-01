@@ -82,13 +82,10 @@ namespace GradeBuddy.Data
             {
                 if (item.AssessmentID !=0)
                 {
-                    Console.WriteLine("Commit to database");
-                    this.database.Update(item);
-                    Console.WriteLine("Calculate percentages");
+                    item.Completed = true;
                     item.CurrentPercent = MathUtils.CurrentAssessmentPercentage(item);
-                    Console.WriteLine("recalculate unit percentage");
+                    this.database.Update(item);
                     SelectionManager.currentUnit.CurrentPercent = MathUtils.CurrentUnitPercentage(SelectionManager.currentUnit);
-                    Console.WriteLine("Recommit Unit to Database");
                     SaveDBUnit(SelectionManager.currentUnit);
 
                     Console.WriteLine("Update Assessment: AssessID = {0} UnitID = {1}", item.AssessmentID, item.UnitID);
@@ -109,7 +106,12 @@ namespace GradeBuddy.Data
         {
             lock (locker)
             {
-                return this.database.Delete<AssessmentModel>(id);
+                this.database.Delete<AssessmentModel>(id);
+
+                SelectionManager.currentUnit.CurrentPercent = MathUtils.CurrentUnitPercentage(SelectionManager.currentUnit);
+                SaveDBUnit(SelectionManager.currentUnit);
+
+                return id;
             }
         }
 

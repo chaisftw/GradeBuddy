@@ -40,7 +40,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Update Assessment" Clicked="UpdateAssessment" Grid.Column="0"/>
-                    <Button Text="Delete Assessment" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteAssessmentCommand}" Grid.Column="1"/>
+                    <Button Text="Delete Assessment" TextColor="White" BackgroundColor="Red" Clicked="DeleteAssessment" Grid.Column="1"/>
                 </Grid>
 
             </StackLayout>

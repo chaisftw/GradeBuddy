@@ -26,16 +26,18 @@ namespace GradeBuddy
             double CurrentPercentage = 0;
             var assessEnum = App.DBManager.GetDBAssessments();
 
-            while (assessEnum.MoveNext())
+            if ((assessEnum != null))
             {
-                
-                if(assessEnum.Current.UnitID == item.UnitID)
+                while (assessEnum.MoveNext())
                 {
 
-                    CurrentPercentage = CurrentPercentage + ((assessEnum.Current.CurrentPercent / 100) * assessEnum.Current.Weight);
+                    if (assessEnum.Current.UnitID == item.UnitID)
+                    {
+
+                        CurrentPercentage = CurrentPercentage + ((assessEnum.Current.CurrentPercent / 100) * assessEnum.Current.Weight);
+                    }
                 }
             }
-            CurrentPercentage = CurrentPercentage * 100;
             return Math.Floor(CurrentPercentage);
         }
 
@@ -69,9 +71,9 @@ namespace GradeBuddy
                         if (percentage >= 100)
                         {
                             GPAPerc += unitEnum.Current.CurrentPercent;
+                            counter++;
                         }
 
-                        counter++;
                     }
                 }
             }

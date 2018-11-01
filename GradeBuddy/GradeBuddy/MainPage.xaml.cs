@@ -17,20 +17,6 @@ namespace GradeBuddy
             InitializeComponent();
 
             Picker.SelectedIndex = 4;
-            if (MathUtils.GPAPercentage() < 1)
-            {
-                CurrentPerc.Text = "--%";
-                CurrentLabel.Text = "--";
-            }
-            else
-            {
-                CurrentPerc.Text = MathUtils.GPAPercentage().ToString() + "%";
-                CurrentLabel.Text = MathUtils.ConvertPercentToGrade(MathUtils.GPAPercentage()).ToString();
-            }
-            TargetPerc.Text = MathUtils.ConvertGradeToPercent(Picker.SelectedIndex).ToString() + "%";
-
-            unitList = new ObservableCollection<UnitModel>();
-            itemList.ItemsSource = GetUnitList();
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -75,7 +61,32 @@ namespace GradeBuddy
 
         private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TargetPerc.Text = MathUtils.ConvertGradeToPercent(Convert.ToInt32(Picker.SelectedItem)).ToString() + "%";
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (MathUtils.GPAPercentage() < 1)
+            {
+                CurrentPerc.Text = "--%";
+                CurrentLabel.Text = "--";
+            }
+            else if (MathUtils.GPAPercentage() > 100)
+            {
+                CurrentPerc.Text = "100%";
+                CurrentLabel.Text = "7";
+            }
+            else
+            {
+                CurrentPerc.Text = MathUtils.GPAPercentage().ToString() + "%";
+                CurrentLabel.Text = MathUtils.ConvertPercentToGrade(MathUtils.GPAPercentage()).ToString();
+            }
             TargetPerc.Text = MathUtils.ConvertGradeToPercent(Picker.SelectedIndex).ToString() + "%";
+
+            unitList = new ObservableCollection<UnitModel>();
+            itemList.ItemsSource = GetUnitList();
         }
     }
 }

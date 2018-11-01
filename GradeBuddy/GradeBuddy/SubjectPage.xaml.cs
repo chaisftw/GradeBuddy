@@ -22,22 +22,7 @@ namespace GradeBuddy
         {
             InitializeComponent();
 
-            Console.WriteLine("Unit Page Loaded: UnitID = {0}", SelectionManager.currentUnit.UnitID);
 
-            TargetLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.TargetGrade).ToString();
-            CurrentPerc.Text = SelectionManager.currentUnit.CurrentPercent.ToString() + "%";
-            CurrentLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.CurrentPercent).ToString();
-            TargetPerc.Text = SelectionManager.currentUnit.TargetGrade.ToString() + "%";
-
-            if (SelectionManager.currentUnit.CurrentPercent < 1)
-            {
-                CurrentLabel.Text = "--";
-                CurrentPerc.Text = "--%";
-            }
-
-            assessmentList = new ObservableCollection<AssessmentModel>();
-
-            assessList.ItemsSource = GetAssessmentList();
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -83,6 +68,25 @@ namespace GradeBuddy
             }
 
             return assessmentList;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            assessList.ItemsSource = null;
+            assessmentList = new ObservableCollection<AssessmentModel>();
+            assessList.ItemsSource = GetAssessmentList();
+
+            TargetLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.TargetGrade).ToString();
+            CurrentPerc.Text = SelectionManager.currentUnit.CurrentPercent.ToString() + "%";
+            CurrentLabel.Text = MathUtils.ConvertPercentToGrade(SelectionManager.currentUnit.CurrentPercent).ToString();
+            TargetPerc.Text = SelectionManager.currentUnit.TargetGrade.ToString() + "%";
+            if (SelectionManager.currentUnit.CurrentPercent < 1)
+            {
+                CurrentLabel.Text = "--";
+                CurrentPerc.Text = "--%";
+            }
         }
     }
 }
