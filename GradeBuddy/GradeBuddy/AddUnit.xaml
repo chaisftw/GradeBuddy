@@ -30,7 +30,7 @@
                 <Label Text="Unit Code" HorizontalTextAlignment="Center" FontSize="Small" />
                 <Entry Text="{Binding UnitCodeEntry}"/>
                 <Label Text="Target Grade (%)" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Text="{Binding TargetEntry}"/>
+                <Entry Text="{Binding TargetEntry}" Keyboard="Numeric"/>
 
                 <Grid>
 

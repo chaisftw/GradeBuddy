@@ -26,7 +26,7 @@
 
                 <Label x:Name="TitleLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Large" />
                 <Label Text="Graded Marks" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="Marks" Placeholder="Marks"/>
+                <Entry x:Name="Marks" Placeholder="Marks" Keyboard="Numeric"/>
                 <Label x:Name="WarningLabel" Text="Invalid Number" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" 
                        Grid.Row="0" Grid.Column="0" FontSize="Small"/>
                 <Grid>
