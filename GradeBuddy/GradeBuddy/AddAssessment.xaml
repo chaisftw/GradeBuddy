@@ -25,15 +25,16 @@
             <StackLayout Spacing="10" VerticalOptions="Start">
 
                 <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="NameText" Text="{Binding AssessmentNameEntry}"/>
+                <Entry x:Name="NameEntry"/>
                 <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="MarkText" Text="{Binding TotalMarksEntry}" Keyboard="Numeric"/>
+                <Entry x:Name="TotalMarksEntry" Keyboard="Numeric"/>
                 <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <Entry x:Name="WeightText" Text="{Binding WeightEntry}" Keyboard="Numeric"/>
+                <Entry x:Name="WeightEntry" Keyboard="Numeric"/>
                 <Label Text="Due Date" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
-                <DatePicker x:Name="DateTimePicker" Date="{Binding DateEntry}" />
+                <DatePicker x:Name="DateTimePicker"/>
 
-                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Assessment" Command="{Binding AddAssessmentCommand}"/>
+                <Label Text="Total marks must be above 0 and weight must be between 1 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Assessment" Clicked="AddAssessmentClicked"/>
             </StackLayout>
         </Grid>
 
