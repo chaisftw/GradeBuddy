@@ -114,7 +114,8 @@ namespace GradeBuddy
             {
                 var assessEnum = App.DBManager.GetDBAssessments();
 
-                while (assessEnum.MoveNext())
+                
+                while (assessEnum.MoveNext() == (assessEnum != null))
                 {
                     if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
                     {
@@ -129,7 +130,8 @@ namespace GradeBuddy
             DeleteAssessmentCommand = new Command(() =>
             {
                 App.DBManager.DeleteDBAssessment(SelectionManager.currentAssessment.AssessmentID);
-                navigationManager.ShowSubjectPage();
+                //navigationManager.ShowSubjectPage();
+                
             });
         }
 

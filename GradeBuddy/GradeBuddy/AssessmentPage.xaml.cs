@@ -26,18 +26,11 @@ namespace GradeBuddy
 
         void UpdateAssessment(object sender, EventArgs e)
         {
-            Console.WriteLine("Button Functional");
-
-            if (int.TryParse(Marks.Text, out int n) && n <= SelectionManager.currentAssessment.TotalMarks)
+            if (int.TryParse(Marks.Text, out int n) && (n <= SelectionManager.currentAssessment.TotalMarks))
             {
-                Console.WriteLine("Inside If");
-                //SelectionManager.currentAssessment.Completed = true;
-                //SelectionManager.currentAssessment.Marks = n;
                 assessItem.Marks = n;
                 assessItem.Completed = true;
                 SelectionManager.currentAssessment = assessItem;
-
-                Console.WriteLine("write database");
 
                 App.DBManager.SaveDBAssessment(assessItem);
                 Navigation.PopAsync();
@@ -46,6 +39,12 @@ namespace GradeBuddy
             {
                 WarningLabel.IsVisible = true;
             }
+        }
+
+        void DeleteAssessment(object sender, EventArgs e)
+        {
+            App.DBManager.DeleteDBAssessment(SelectionManager.currentAssessment.AssessmentID);
+            Navigation.PopAsync();
         }
     }
 }
