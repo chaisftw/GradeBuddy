@@ -26,11 +26,11 @@
             <StackLayout Spacing="10" VerticalOptions="Start">
 
                 <Label Text="Unit Name" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Text="{Binding UnitNameEntry}"/>
+                <Entry x:Name="UnitNameEntry"/>
                 <Label Text="Unit Code" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Text="{Binding UnitCodeEntry}"/>
+                <Entry x:Name="UnitCodeEntry"/>
                 <Label Text="Target Grade (%)" HorizontalTextAlignment="Center" FontSize="Small" />
-                <Entry Text="{Binding TargetEntry}" Keyboard="Numeric"/>
+                <Entry x:Name="Target" Keyboard="Numeric"/>
 
                 <Grid>
 
@@ -43,7 +43,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Picker x:Name="SemesterPicker" Grid.Column="0" SelectedItem="{Binding SemesterEntry}">
+                    <Picker x:Name="SemesterPicker" Grid.Column="0">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Semester 1</x:String>
@@ -53,7 +53,7 @@
                         </Picker.ItemsSource>
                     </Picker>
 
-                    <Picker x:Name="YearPicker" Grid.Column="1" SelectedItem="{Binding YearEntry}">
+                    <Picker x:Name="YearPicker" Grid.Column="1">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>2018</x:String>
@@ -71,6 +71,7 @@
                     </Picker>
                 </Grid>
 
+                <Label Text="Target grade must be between 50 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
                 <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Command="{Binding AddUnitCommand}"/>
             </StackLayout>
         </Grid>
