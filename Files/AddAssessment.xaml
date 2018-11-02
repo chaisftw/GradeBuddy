@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GradeBuddy"
+             Title="Add Assessment"
+             x:Class="GradeBuddy.AddAssessment">
+    <ContentPage.Content>
+        <Grid Padding="5"
+              RowSpacing="5"
+              Grid.Column="0">
+
+            <Grid.BindingContext>
+                <local:ViewModel/>
+            </Grid.BindingContext>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Spacing="10" VerticalOptions="Start">
+
+                <Label Text="Assessment Type" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="NameEntry"/>
+                <Label Text="Total Marks" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="TotalMarksEntry" Keyboard="Numeric"/>
+                <Label Text="Weight (%)" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Entry x:Name="WeightEntry" Keyboard="Numeric"/>
+                <Label Text="Due Date" HorizontalTextAlignment="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <DatePicker x:Name="DateTimePicker"/>
+
+                <Label Text="Total marks must be above 0 and weight must be between 1 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Assessment" Clicked="AddAssessmentClicked"/>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

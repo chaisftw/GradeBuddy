@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GradeBuddy"
+             Title="Add Unit"
+             x:Class="GradeBuddy.AddUnit">
+    
+    <ContentPage.Content>
+        <Grid Padding="5"
+              RowSpacing="5"
+              Grid.Column="0">
+
+            <Grid.BindingContext>
+                <local:ViewModel/>
+            </Grid.BindingContext>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Spacing="10" VerticalOptions="Start">
+
+                <Label Text="Unit Name" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Entry x:Name="UnitNameEntry"/>
+                <Label Text="Unit Code" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Entry x:Name="UnitCodeEntry"/>
+                <Label Text="Target Grade (%)" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Entry x:Name="Target" Keyboard="Numeric"/>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Picker x:Name="SemesterPicker" Grid.Column="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Semester 1</x:String>
+                                <x:String>Semester 2</x:String>
+                                <x:String>Semester 3</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Picker x:Name="YearPicker" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>2018</x:String>
+                                <x:String>2019</x:String>
+                                <x:String>2020</x:String>
+                                <x:String>2021</x:String>
+                                <x:String>2022</x:String>
+                                <x:String>2023</x:String>
+                                <x:String>2024</x:String>
+                                <x:String>2025</x:String>
+                                <x:String>2026</x:String>
+                                <x:String>2027</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+                
+                <Label Text="Target grade must be between 50 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Clicked="AddUnitClicked"/>
+            </StackLayout>
+        </Grid>
+            
+    </ContentPage.Content>
+</ContentPage>

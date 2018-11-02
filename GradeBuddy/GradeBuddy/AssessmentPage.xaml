@@ -9,10 +9,6 @@
               RowSpacing="5"
               Grid.Column="0">
 
-            <Grid.BindingContext>
-                <local:ViewModel/>
-            </Grid.BindingContext>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="9*"/>
                 <RowDefinition Height="*"/>
