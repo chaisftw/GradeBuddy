@@ -72,13 +72,10 @@ namespace GradeBuddy
 
             if (assessEnum != null)
             {
-                Console.WriteLine("Populating Assessment: ");
                 while (assessEnum.MoveNext())
                 {
-                    Console.WriteLine("AssessmentID = {0}", assessEnum.Current.AssessmentID);
                     if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
                     {
-                        Console.WriteLine("Correct ID AssessmentID = {0}, ", assessEnum.Current.AssessmentID);
                         assessmentList.Add(assessEnum.Current);
                     }
                 }

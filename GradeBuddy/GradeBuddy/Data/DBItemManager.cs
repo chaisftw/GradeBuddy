@@ -87,15 +87,13 @@ namespace GradeBuddy.Data
                     this.database.Update(item);
                     SelectionManager.currentUnit.CurrentPercent = MathUtils.CurrentUnitPercentage(SelectionManager.currentUnit);
                     SaveDBUnit(SelectionManager.currentUnit);
-
-                    Console.WriteLine("Update Assessment: AssessID = {0} UnitID = {1}", item.AssessmentID, item.UnitID);
+                    
                     return item.AssessmentID;
                 }
                 else
                 {
                     this.database.Insert(item);
-
-                    Console.WriteLine("Create Assessment: AssessID = {0} UnitID = {1}", item.AssessmentID, item.UnitID);
+                    
                     return item.AssessmentID;
                 }
             }
