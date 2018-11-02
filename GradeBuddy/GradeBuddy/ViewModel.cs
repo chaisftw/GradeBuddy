@@ -114,12 +114,14 @@ namespace GradeBuddy
             {
                 var assessEnum = App.DBManager.GetDBAssessments();
 
-                
-                while (assessEnum.MoveNext() == (assessEnum != null))
+                if (assessEnum != null)
                 {
-                    if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                    while (assessEnum.MoveNext() == (assessEnum != null))
                     {
-                        App.DBManager.DeleteDBAssessment(assessEnum.Current.AssessmentID);
+                        if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                        {
+                            App.DBManager.DeleteDBAssessment(assessEnum.Current.AssessmentID);
+                        }
                     }
                 }
 
