@@ -21,7 +21,6 @@ namespace GradeBuddy
 			InitializeComponent ();
             assessItem = assessPassed;
             TitleLabel.Text = SelectionManager.currentUnit.Name + ": " + SelectionManager.currentAssessment.Name;
-            Console.WriteLine(assessPassed.AssessmentID);
         }
 
         void UpdateAssessment(object sender, EventArgs e)

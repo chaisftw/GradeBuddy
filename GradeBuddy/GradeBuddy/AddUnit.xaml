@@ -10,10 +10,6 @@
               RowSpacing="5"
               Grid.Column="0">
 
-            <Grid.BindingContext>
-                <local:ViewModel/>
-            </Grid.BindingContext>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="9*"/>
                 <RowDefinition Height="*"/>
@@ -72,7 +68,7 @@
                 </Grid>
 
                 <Label Text="Target grade must be between 50 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
-                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Command="{Binding AddUnitCommand}"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Clicked="AddUnitClicked"/>
             </StackLayout>
         </Grid>
             

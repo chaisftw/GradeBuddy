@@ -47,19 +47,35 @@ namespace GradeBuddy
             });
         }
 
+        async void DeleteUnit(object sender, EventArgs e)
+        {
+            var assessEnum = App.DBManager.GetDBAssessments();
+
+            if (assessEnum != null)
+            {
+                while (assessEnum.MoveNext())
+                {
+                    if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
+                    {
+                        App.DBManager.DeleteDBAssessment(assessEnum.Current.AssessmentID);
+                    }
+                }
+            }
+
+            App.DBManager.DeleteDBUnit(SelectionManager.currentUnit.UnitID);
+            await Navigation.PopAsync();
+        }
+
         public ObservableCollection<AssessmentModel> GetAssessmentList()
         {
             var assessEnum = App.DBManager.GetDBAssessments();
 
             if (assessEnum != null)
             {
-                Console.WriteLine("Populating Assessment: ");
                 while (assessEnum.MoveNext())
                 {
-                    Console.WriteLine("AssessmentID = {0}", assessEnum.Current.AssessmentID);
                     if (assessEnum.Current.UnitID == SelectionManager.currentUnit.UnitID)
                     {
-                        Console.WriteLine("Correct ID AssessmentID = {0}, ", assessEnum.Current.AssessmentID);
                         assessmentList.Add(assessEnum.Current);
                     }
                 }

@@ -8,10 +8,6 @@
     <Grid Padding="5"
           RowSpacing="5">
 
-        <Grid.BindingContext>
-            <local:ViewModel/>
-        </Grid.BindingContext>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="*"/>
@@ -134,7 +130,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Add Assignment" TextColor="White" BackgroundColor="DeepSkyBlue" Clicked="AddAssessment" Grid.Column="0"/>
-            <Button Text="Delete Unit" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteUnitCommand}" Grid.Column="1"/>
+            <Button Text="Delete Unit" TextColor="White" BackgroundColor="Red" Clicked="DeleteUnit" Grid.Column="1"/>
         </Grid>
     </Grid>
 
