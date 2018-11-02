@@ -72,7 +72,7 @@
                 </Grid>
 
                 <Label Text="Target grade must be between 50 and 100." x:Name="WarningLabel" TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
-                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Command="{Binding AddUnitCommand}"/>
+                <Button VerticalOptions="End" TextColor="White" BackgroundColor="DeepSkyBlue" Text="Add Unit" Clicked="AddUnitClicked"/>
             </StackLayout>
         </Grid>
             
